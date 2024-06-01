@@ -21,7 +21,7 @@ Clone the repository into the home directory.
 ```sh
 cd $HOME
 
-git clone ...
+git clone git@github.com:mmcxii/dotfiles.git
 ```
 
 Then enter the dotfiles folder and link it to its parent folder using stow.

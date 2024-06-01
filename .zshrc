@@ -61,6 +61,18 @@ setopt hist_find_no_dups
 alias ls="ls --color"
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
+# Aliases
+# Git
+alias ga="git add -A"
+alias gc="git commit -m"
+alias gcn="git commit --amend --no-edit"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gacp="ga && gcn && gpf"
+alias gbmp="git checkout master && git pull"
+alias gb="git branch"
+alias gbd="gb -D"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

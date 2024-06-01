@@ -8,15 +8,13 @@ These configuration files are simlinked into the parent directory using [GNU Sto
 
 ### Prerequisites
 
-Install dependencies.
+Set zsh as the default terminal
 
 ```sh
-brew install stow
-brew install fzf
-brew install zoxide
+chsh -s $(which zsh)
 ```
 
-## Installation
+### Installation
 
 Clone the repository into the home directory.
 
@@ -26,10 +24,9 @@ cd $HOME
 git clone git@github.com:mmcxii/dotfiles.git
 ```
 
-Then enter the dotfiles folder and link it to its parent folder using stow.
+Run the setup script
 
 ```sh
 cd ./dotfiles
-
-stow .
+sh ./setup.sh
 ```

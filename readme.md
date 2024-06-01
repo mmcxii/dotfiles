@@ -8,16 +8,12 @@ These configuration files are simlinked into the parent directory using [GNU Sto
 
 ### Prerequisites
 
-Install Stow using a package manager.
+Install dependencies.
 
 ```sh
 brew install stow
-```
-
-Install FZF using a package manager.
-
-```sh
 brew install fzf
+brew install zoxide
 ```
 
 ## Installation

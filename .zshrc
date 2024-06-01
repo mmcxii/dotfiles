@@ -34,6 +34,7 @@ zstyle ":completion:*" menu no
 #                                           Single quoutes are require
 #                                           for command to work
 zstyle ":fzf-tab:complete:cd:*" fzf-preview 'ls --color $realpath'
+zstyle ":fzf-tab:complete:__zoxide_z:*" fzf-preview 'ls --color $realpath'
 eval "$(fzf --zsh)"
 
 # Autosuggestions
@@ -62,6 +63,9 @@ alias ls="ls --color"
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # Aliases
+# General
+alias c="clear"
+eval "$(zoxide init --cmd cd zsh)"
 # Git
 alias ga="git add -A"
 alias gc="git commit -m"

@@ -14,6 +14,12 @@ Install Stow using a package manager.
 brew install stow
 ```
 
+Install FZF using a package manager.
+
+```sh
+brew install fzf
+```
+
 ## Installation
 
 Clone the repository into the home directory.

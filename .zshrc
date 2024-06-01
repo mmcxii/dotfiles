@@ -28,6 +28,13 @@ zinit light zsh-users/zsh-completions
 autoload -U compinit && compinit
 # Match lowercase to uppercase
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
+# Fuzzy Search
+zinit light Aloxaf/fzf-tab
+zstyle ":completion:*" menu no
+#                                           Single quoutes are require
+#                                           for command to work
+zstyle ":fzf-tab:complete:cd:*" fzf-preview 'ls --color $realpath'
+eval "$(fzf --zsh)"
 
 # Autosuggestions
 zinit light zsh-users/zsh-autosuggestions

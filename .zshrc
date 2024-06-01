@@ -19,6 +19,41 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Syntax Highlighting
+zinit light zsh-users/zsh-syntax-highlighting
+
+# Autocompletions
+zinit light zsh-users/zsh-completions
+# Load completions
+autoload -U compinit && compinit
+# Match lowercase to uppercase
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
+
+# Autosuggestions
+zinit light zsh-users/zsh-autosuggestions
+# Keybindings
+# EMACS
+bindkey -e
+bindkey "^p" history-search-backward
+bindkey "^n" history-search-forward
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Styling
+# Colorize ls
+alias ls="ls --color"
+zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

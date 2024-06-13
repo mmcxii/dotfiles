@@ -30,3 +30,5 @@ Run the setup script
 cd ./dotfiles
 sh ./setup.sh
 ```
+
+Then close and restart your terminal. The setup process will run the first time you open a new terminal after running the setup script.

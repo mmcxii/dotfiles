@@ -5,7 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
-    "folke/todo-comments.nvim"
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -13,12 +13,19 @@ return {
 
     telescope.setup({
       defaults = {
+        file_ignore_patterns = { "node_modules", ".git/" }, -- add any patterns to ignore
+        hidden = true, -- this option allows hidden files to be shown
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true, -- This ensures hidden files are included in the find_files picker
         },
       },
     })

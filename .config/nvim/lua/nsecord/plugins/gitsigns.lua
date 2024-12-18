@@ -2,6 +2,13 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    signs = {
+      add = { text = "+" },
+      change = { text = "~" },
+      changedelete = { text = "~" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+    },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 

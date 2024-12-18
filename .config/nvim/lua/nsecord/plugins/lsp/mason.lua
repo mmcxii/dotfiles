@@ -41,6 +41,7 @@ return {
         "prettier",
         "stylua",
         "eslint_d",
+        "js-debug-adapter",
       },
     })
   end,

@@ -27,7 +27,6 @@
             pkgs.mkalias
 
             pkgs.alacritty
-            pkgs.nerd-fonts.jetbrains-mono
             pkgs.neovim
             pkgs.nixfmt-rfc-style
             pkgs.tmux
@@ -51,6 +50,7 @@
             casks = [
               "todoist"
               "raycast"
+              "font-meslo-lg-nerd-font"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

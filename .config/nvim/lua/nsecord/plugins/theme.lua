@@ -7,6 +7,7 @@ return {
       -- load the colorscheme here
       require("night-owl").setup()
       vim.cmd.colorscheme("night-owl")
+      vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
     end,
-  }
+  },
 }

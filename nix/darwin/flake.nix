@@ -47,7 +47,6 @@
 
               # Languages
               "mysql"
-              "rust"
             ];
             casks = [
               "todoist"

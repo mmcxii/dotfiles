@@ -21,6 +21,9 @@
         {
 
           nixpkgs.config.allowUnfree = true;
+          nixpkgs.config.permittedInsecurePackages = [
+            "dotnet-sdk-7.0.410"
+          ];
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
@@ -32,6 +35,8 @@
             pkgs.tmux
 
             pkgs.obsidian
+
+            pkgs.dotnet-sdk_7
           ];
 
           homebrew = {
@@ -51,6 +56,7 @@
               "todoist"
               "raycast"
               "font-meslo-lg-nerd-font"
+              "visual-studio-code"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

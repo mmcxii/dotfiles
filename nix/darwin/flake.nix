@@ -89,7 +89,7 @@
             dock.persistent-apps = [
               "${pkgs.alacritty}/Applications/Alacritty.app"
               "${pkgs.obsidian}/Applications/Obsidian.app"
-              "/System/Applications/Todoist.app"
+              "/Applications/Todoist.app"
             ];
 
             finder.FXPreferredViewStyle = "clmv";

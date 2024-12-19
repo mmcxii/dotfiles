@@ -40,6 +40,7 @@ return {
         "query",
         "vimdoc",
         "c_sharp",
+        "nix",
       },
       incremental_selection = {
         enable = true,

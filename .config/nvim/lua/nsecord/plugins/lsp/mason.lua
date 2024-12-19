@@ -42,6 +42,9 @@ return {
         "stylua",
         "eslint_d",
         "js-debug-adapter",
+        -- TODO: Install with mason when available
+        -- "nixfmt",
+        "codespell",
       },
     })
   end,

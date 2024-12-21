@@ -34,13 +34,17 @@
             pkgs.fzf
             pkgs.zoxide
             pkgs.stow
+            pkgs.oh-my-posh
 
             pkgs.obsidian
-            # pkgs.raycast
-            # pkgs.vscode
 
             pkgs.nodejs_22
             pkgs.python3
+
+            # TODO: Investigate why these packages aren't working.
+            # pkgs.raycast
+            # pkgs.vscode
+            # pkgs.lazygit
           ];
 
           homebrew = {

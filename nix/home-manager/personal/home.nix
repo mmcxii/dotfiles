@@ -22,6 +22,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".zshrc".source = ../../../.zshrc;
+    ".tmux.conf".source = ../../../.tmux.conf;
   };
 
   home.sessionVariables = {

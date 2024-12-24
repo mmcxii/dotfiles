@@ -29,3 +29,5 @@ CVS
 readme.md
 setup.sh
 nix
+# Managed by Nix Home Manager
+.zshrc

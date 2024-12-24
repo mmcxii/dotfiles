@@ -14,6 +14,12 @@ Set zsh as the default terminal
 chsh -s $(which zsh)
 ```
 
+Install Nix
+
+```sh
+curl -L https://nixos.org/nix/install | sh
+```
+
 ### Installation
 
 Clone the repository into the home directory.
@@ -29,6 +35,16 @@ Run the setup script
 ```sh
 cd ./dotfiles
 sh ./setup.sh
+```
+
+Build the Nix Flake
+
+```sh
+# Personal Flake
+darwin-rebuild switch --flake ~/dotfiles/nix/darwin/personal/flake.nix#personal
+
+# Tesla Flake
+darwin-rebuild switch --flake ~/dotfiles/nix/darwin/tesla/flake.nix#tesla
 ```
 
 Then close and restart your terminal. The setup process will run the first time you open a new terminal after running the setup script.

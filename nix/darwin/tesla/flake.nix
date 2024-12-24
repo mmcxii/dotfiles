@@ -33,21 +33,23 @@
             pkgs.neovim
             pkgs.nixfmt-rfc-style
             pkgs.tmux
+            pkgs.ripgrep
+            pkgs.fzf
+            pkgs.zoxide
+            pkgs.stow
+            pkgs.oh-my-posh
 
             pkgs.obsidian
 
-            pkgs.dotnet-sdk_7
+            pkgs.nodejs_22
+            pkgs.python3
           ];
 
           homebrew = {
             enable = true;
             brews = [
-              "ripgrep"
               "lazygit"
               "nvm"
-              "fzf"
-              "zoxide"
-              "stow"
 
               # Languages
               "mysql"

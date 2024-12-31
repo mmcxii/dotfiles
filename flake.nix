@@ -31,13 +31,19 @@
       ...
     }:
     {
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-
       # Home Manager Configurations
-      homeConfigurations = { };
+      homeConfigurations = {
+        personal = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          modules = [
+            ./home/common/v1.nix
+            {
+              _module.args.self = self;
+            }
+            ./home/personal/v1.nix
+          ];
+        };
+      };
 
       # MacOS Configurations
       darwinConfigurations = {

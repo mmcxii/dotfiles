@@ -17,7 +17,6 @@
     pkgs.ripgrep
     pkgs.fzf
     pkgs.zoxide
-    pkgs.stow
     pkgs.oh-my-posh
 
     pkgs.obsidian

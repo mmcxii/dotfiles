@@ -11,7 +11,11 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+    }:
     let
       system = "x86_64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +26,13 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          {
+            # Pass self as an extra argument
+            _module.args.self = self;
+          }
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

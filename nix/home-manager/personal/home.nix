@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  self,
+  ...
+}:
 
 {
   home.username = "nichsecord";
@@ -21,8 +26,14 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".zshrc".source = ~/dotfiles/zshrc/.zshrc;
-    ".tmux.conf".source = ../../../.tmux.conf;
+    # ".zshrc".source =
+    #   config.lib.file.mkOutOfStoreSymlink "/${config.home.homeDirectory}/dotfiles/zsh/zshrc";
+    ".zshrc" = {
+      source = "${self}/zsh/zshrc";
+      target = ".zshrc";
+    };
+    ".tmux.conf".source =
+      config.lib.file.mkOutOfStoreSymlink "/${config.home.homeDirectory}/dotfiles/tmux/tmux.conf";
   };
 
   home.sessionVariables = {
@@ -30,4 +41,5 @@
 
   programs.home-manager.enable = true;
   programs.zsh.enable = true;
+  programs.tmux.enable = true;
 }

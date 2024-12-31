@@ -2,7 +2,7 @@
 
 ## Description
 
-These configuration files are simlinked into the parent directory using [GNU Stow](https://www.gnu.org/software/stow/).
+This repository contains dotfiles and packages configured with Nix and Home Manager.
 
 ## Setup
 
@@ -12,12 +12,6 @@ Set zsh as the default terminal
 
 ```sh
 chsh -s $(which zsh)
-```
-
-Install Nix
-
-```sh
-curl -L https://nixos.org/nix/install | sh
 ```
 
 ### Installation
@@ -37,14 +31,19 @@ cd ./dotfiles
 sh ./setup.sh
 ```
 
-Build the Nix Flake
+Then close and restart your terminal. The setup process will run the first time you open a new terminal after running the setup script.
+
+Build the Nix Configurations
+
+(Note: The initial build may require the use of the `--experimental-extra-features "nix-command flakes"` flag.)
 
 ```sh
-# Personal Flake
-darwin-rebuild switch --flake ~/dotfiles/nix/darwin/personal/flake.nix#personal
+# Personal
+darwin-rebuild switch --flake ~/dotfiles/#personal
+home-manager switch --flake ~/dotfiles/#personal
 
-# Tesla Flake
-darwin-rebuild switch --flake ~/dotfiles/nix/darwin/tesla/flake.nix#tesla
+# Business
+darwin-rebuild switch --flake ~/dotfiles/#business
+home-manager switch --flake ~/dotfiles/#personal
 ```
 
-Then close and restart your terminal. The setup process will run the first time you open a new terminal after running the setup script.

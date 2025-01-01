@@ -1,7 +1,6 @@
 # Theme
 font-family = "MesloLGS Nerd Font Mono"
-# theme = tokyonight
-theme = rose-pine-moon
+theme = rose-pine
 term = xterm-256color
 
 # Window

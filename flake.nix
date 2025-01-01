@@ -43,6 +43,17 @@
             ./home/personal/v1.nix
           ];
         };
+
+        business = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [
+            ./home/common/v1.nix
+            {
+              _module.args.self = self;
+            }
+            ./home/personal/v1.nix
+          ];
+        };
       };
 
       # MacOS Configurations

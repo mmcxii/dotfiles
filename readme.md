@@ -44,6 +44,5 @@ home-manager switch --flake ~/dotfiles/#personal
 
 # Business
 darwin-rebuild switch --flake ~/dotfiles/#business
-home-manager switch --flake ~/dotfiles/#personal
+home-manager switch --flake ~/dotfiles/#business
 ```
-

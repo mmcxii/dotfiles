@@ -11,31 +11,31 @@
 
   environment.systemPackages = with pkgs; [
     # MacOS Utils
-    pkgs.mkalias
+    mkalias
 
     # Terminal Utils
-    pkgs.ripgrep
-    pkgs.fzf
-    pkgs.zoxide
-    pkgs.oh-my-posh
-    pkgs.tmux
+    ripgrep
+    fzf
+    zoxide
+    oh-my-posh
+    tmux
 
     # Apps
-    pkgs.neovim
-    pkgs.obsidian
+    neovim
+    obsidian
 
     # Languages
-    pkgs.nodejs_22
-    pkgs.python3
+    nodejs_22
+    python3
 
     # Language Support
-    pkgs.nixfmt-rfc-style
-    pkgs.nixd
+    nixfmt-rfc-style
+    nixd
 
     # TODO: Investigate why these packages aren't working.
-    # pkgs.raycast
-    # pkgs.vscode
-    # pkgs.lazygit
+    #raycast
+    #vscode
+    #lazygit
   ];
 
   homebrew = {

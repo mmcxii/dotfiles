@@ -22,14 +22,14 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
       home-manager,
       darwin,
       nix-homebrew,
       ...
-    }:
+    }@inputs:
     let
       pkgs = nixpkgs.legacyPackages;
     in
@@ -40,22 +40,22 @@
           pkgs = pkgs.x86_64-darwin;
 
           modules = [
-            ./home/common/v1.nix
+            ./home/common/default.nix
             {
               _module.args.self = self;
             }
-            ./home/personal/v1.nix
+            ./home/personal/default.nix
           ];
         };
 
         business = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.aarch64-darwin;
           modules = [
-            ./home/common/v1.nix
+            ./home/common/default.nix
             {
               _module.args.self = self;
             }
-            ./home/personal/v1.nix
+            ./home/personal/default.nix
           ];
         };
       };
@@ -69,7 +69,7 @@
             inherit inputs;
           };
           modules = [
-            ./hosts/personal/v1.nix
+            ./hosts/personal/default.nix
             nix-homebrew.darwinModules.nix-homebrew
             {
               nix-homebrew = {
@@ -88,7 +88,7 @@
             inherit inputs;
           };
           modules = [
-            ./hosts/business/v1.nix
+            ./hosts/business/default.nix
             nix-homebrew.darwinModules.nix-homebrew
             {
               nix-homebrew = {

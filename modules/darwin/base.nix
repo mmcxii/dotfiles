@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     pkgs.mkalias
 
-    pkgs.alacritty
+    # pkgs.alacritty
     pkgs.neovim
     pkgs.nixfmt-rfc-style
     pkgs.tmux
@@ -41,6 +41,7 @@
       "raycast"
       "visual-studio-code"
       "font-meslo-lg-nerd-font"
+      "ghostty"
     ];
     onActivation = {
       cleanup = "zap";
@@ -82,7 +83,7 @@
       dock = {
         autohide = true;
         persistent-apps = [
-          "${pkgs.alacritty}/Applications/Alacritty.app"
+          "/Applications/Ghostty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Todoist.app"
         ];

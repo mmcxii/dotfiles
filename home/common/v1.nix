@@ -22,8 +22,8 @@
       source = "${self}/dotfiles/nix";
       recursive = true;
     };
-    ".config/alacritty" = {
-      source = "${self}/dotfiles/alacritty";
+    ".config/ghostty" = {
+      source = "${self}/dotfiles/ghostty";
       recursive = true;
     };
     ".config/nvim" = {

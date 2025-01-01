@@ -30,11 +30,15 @@
       nix-homebrew,
       ...
     }:
+    let
+      pkgs = nixpkgs.legacyPackages;
+    in
     {
       # Home Manager Configurations
       homeConfigurations = {
         personal = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          pkgs = pkgs.x86_64-darwin;
+
           modules = [
             ./home/common/v1.nix
             {
@@ -45,7 +49,7 @@
         };
 
         business = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          pkgs = pkgs.aarch64-darwin;
           modules = [
             ./home/common/v1.nix
             {
@@ -62,6 +66,7 @@
           system = "x86_64-darwin";
           specialArgs = {
             inherit self;
+            inherit inputs;
           };
           modules = [
             ./hosts/personal/v1.nix
@@ -80,6 +85,7 @@
           system = "aarch64-darwin";
           specialArgs = {
             inherit self;
+            inherit inputs;
           };
           modules = [
             ./hosts/business/v1.nix

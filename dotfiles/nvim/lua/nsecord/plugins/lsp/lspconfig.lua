@@ -95,7 +95,7 @@ return {
       ["emmet_ls"] = function()
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css" }
+          filetypes = { "html", "typescriptreact", "javascriptreact", "css" },
         })
       end,
       ["lua_ls"] = function()
@@ -115,6 +115,30 @@ return {
           },
         })
       end,
+    })
+
+    lspconfig.nixd.setup({
+      capabilities = capabilities,
+      cmd = { "nixd" },
+      filetypes = { "nix" },
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }",
+          },
+          formatting = {
+            command = { "nixfmt" },
+          },
+          -- options = {
+          --   nixos = {
+          --       expr = '(builtins.getFlake "/PATH/TO/FLAKE").nixosConfigurations.CONFIGNAME.options',
+          --   },
+          --   home_manager = {
+          --       expr = '(builtins.getFlake "/PATH/TO/FLAKE").homeConfigurations.CONFIGNAME.options',
+          --   },
+          -- },
+        },
+      },
     })
   end,
 }

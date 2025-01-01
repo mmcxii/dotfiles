@@ -2,10 +2,12 @@
   config,
   pkgs,
   self,
+  inputs,
   ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   environment.systemPackages = with pkgs; [
     # MacOS Utils
@@ -28,6 +30,7 @@
 
     # Language Support
     pkgs.nixfmt-rfc-style
+    pkgs.nixd
 
     # TODO: Investigate why these packages aren't working.
     # pkgs.raycast

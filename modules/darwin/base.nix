@@ -8,21 +8,26 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # MacOS Utils
     pkgs.mkalias
 
-    # pkgs.alacritty
-    pkgs.neovim
-    pkgs.nixfmt-rfc-style
-    pkgs.tmux
+    # Terminal Utils
     pkgs.ripgrep
     pkgs.fzf
     pkgs.zoxide
     pkgs.oh-my-posh
+    pkgs.tmux
 
+    # Apps
+    pkgs.neovim
     pkgs.obsidian
 
+    # Languages
     pkgs.nodejs_22
     pkgs.python3
+
+    # Language Support
+    pkgs.nixfmt-rfc-style
 
     # TODO: Investigate why these packages aren't working.
     # pkgs.raycast
@@ -42,6 +47,7 @@
       "visual-studio-code"
       "font-meslo-lg-nerd-font"
       "ghostty"
+      "arc"
     ];
     onActivation = {
       cleanup = "zap";
@@ -86,6 +92,7 @@
           "/Applications/Ghostty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Todoist.app"
+          "/Applications/Arc.app"
         ];
       };
       finder = {

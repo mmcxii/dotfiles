@@ -12,4 +12,17 @@
   system = {
     stateVersion = 5;
   };
+
+  homebrew = {
+    enable = true;
+    casks = [
+      "sparrow"
+      "keet"
+      "proton-mail"
+      "protonvpn"
+    ];
+    masApps = {
+      "Copilot" = 1447330651;
+    };
+  };
 }

@@ -23,6 +23,7 @@
     # Apps
     neovim
     obsidian
+    spotify
 
     # Languages
     nodejs_22

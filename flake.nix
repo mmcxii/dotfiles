@@ -55,7 +55,7 @@
             {
               _module.args.self = self;
             }
-            ./home/personal/default.nix
+            ./home/business/default.nix
           ];
         };
       };

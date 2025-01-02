@@ -26,7 +26,7 @@ fi
 # Install Home Manager if not already installed
 if ! command_exists home-manager; then
     # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone
-    nix run --extra-experimental-features "nix-command flakes" nixpkgs#home-manager
+    nix --extra-experimental-features run "nix-command flakes" nixpkgs#home-manager
 fi
 
 # Ensure TPM is installed

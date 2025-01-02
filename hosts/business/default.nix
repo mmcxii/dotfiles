@@ -6,6 +6,7 @@
 {
   imports = [
     "${self}/modules/darwin/base.nix"
+    "${self}/modules/nix/garbage-collection.nix"
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";

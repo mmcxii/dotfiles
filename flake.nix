@@ -48,6 +48,18 @@
           ];
         };
 
+        personal-nixos = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs.x86_64-linux;
+
+          modules = [
+            ./home/common/default.nix
+            {
+              _module.args.self = self;
+            }
+            ./home/personal-nixos/default.nix
+          ];
+        };
+
         business = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.aarch64-darwin;
           modules = [
@@ -97,6 +109,22 @@
                 user = "nsecord";
               };
             }
+          ];
+        };
+      };
+
+      # NixOS Configurations
+      nixosConfigurations = {
+        personal-nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit self;
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/personal-nixos/configuration.nix
+            ./hosts/personal-nixos/hardware-configuration.nix
+            ./hosts/personal-nixos/default.nix
           ];
         };
       };

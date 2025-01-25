@@ -22,7 +22,7 @@
       "protonvpn"
     ];
     masApps = {
-      "Copilot" = 1447330651;
+      # "Copilot" = 1447330651;
     };
   };
 }

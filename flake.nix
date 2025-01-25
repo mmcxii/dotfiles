@@ -34,99 +34,90 @@
       pkgs = nixpkgs.legacyPackages;
     in
     {
-      # Home Manager Configurations
-      homeConfigurations = {
-        personal = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs.x86_64-darwin;
-
-          modules = [
-            ./home/common/default.nix
-            {
-              _module.args.self = self;
-            }
-            ./home/personal/default.nix
-          ];
+      # Business
+      darwinConfigurations.business = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {
+          inherit self;
+          inherit inputs;
         };
-
-        personal-nixos = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs.x86_64-linux;
-
-          modules = [
-            ./home/common/default.nix
-            {
-              _module.args.self = self;
-            }
-            ./home/personal-nixos/default.nix
-          ];
-        };
-
-        business = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs.aarch64-darwin;
-          modules = [
-            ./home/common/default.nix
-            {
-              _module.args.self = self;
-            }
-            ./home/business/default.nix
-          ];
-        };
+        modules = [
+          ./hosts/business/configuration.nix
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true; # Apple Silicon Only
+              user = "nsecord";
+            };
+          }
+        ];
+      };
+      homeConfigurations.business = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs.aarch64-darwin;
+        modules = [
+          ./modules/home-manager/dotfiles.nix
+          {
+            _module.args.self = self;
+          }
+          ./hosts/business/home.nix
+        ];
       };
 
-      # MacOS Configurations
-      darwinConfigurations = {
-        personal = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          specialArgs = {
-            inherit self;
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/personal/default.nix
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = false; # Apple Silicon Only
-                user = "nichsecord";
-              };
-            }
-          ];
+      # Personal - MacOS
+      darwinConfigurations.personal-darwin = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        specialArgs = {
+          inherit self;
+          inherit inputs;
         };
+        modules = [
+          ./hosts/personal-darwin/configuration.nix
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = false; # Apple Silicon Only
+              user = "nichsecord";
+            };
+          }
+        ];
+      };
+      homeConfigurations.personal-darwin = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs.x86_64-darwin;
 
-        business = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = {
-            inherit self;
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/business/default.nix
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                enable = true;
-                enableRosetta = true; # Apple Silicon Only
-                user = "nsecord";
-              };
-            }
-          ];
-        };
+        modules = [
+          ./modules/home-manager/dotfiles.nix
+          {
+            _module.args.self = self;
+          }
+          ./hosts/personal-darwin/home.nix
+        ];
       };
 
-      # NixOS Configurations
-      nixosConfigurations = {
-        personal-nixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit self;
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/personal-nixos/configuration.nix
-            ./hosts/personal-nixos/hardware-configuration.nix
-            ./hosts/personal-nixos/default.nix
-          ];
+      # Personal - NixOS
+      nixosConfigurations.personal-nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit self;
+          inherit inputs;
         };
+        modules = [
+          ./hosts/personal-nixos/configuration.nix
+          ./hosts/personal-nixos/hardware-configuration.nix
+          ./hosts/personal-nixos/default.nix
+        ];
+      };
+      homeConfigurations.personal-nixos = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs.x86_64-linux;
+
+        modules = [
+          ./modules/home-manager/dotfiles.nix
+          {
+            _module.args.self = self;
+          }
+          ./hosts/personal-nixos/home.nix
+        ];
       };
     };
 }

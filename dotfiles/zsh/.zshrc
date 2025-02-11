@@ -70,6 +70,7 @@ alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gacp="git add -A && git commit --amend --no-edit && git push --force-with-lease"
 alias gbmp="git checkout master && git pull"
+alias gbmap="git checkout main && git pull"
 alias gb="git branch"
 alias gbd="gb -D"
 

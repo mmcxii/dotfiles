@@ -51,4 +51,16 @@ return {
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
     end,
   },
+  config = function()
+    require("gitsigns").setup({
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol",
+        delay = 100,
+        ignore_whitespace = false,
+      },
+      current_line_blame_formatter = "<author>, <author_time:%H:%M %d %b, %Y> - <summary>",
+    })
+  end,
 }

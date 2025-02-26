@@ -52,6 +52,7 @@
       "font-meslo-lg-nerd-font"
       "ghostty"
       "arc"
+      "docker"
     ];
     onActivation = {
       cleanup = "zap";

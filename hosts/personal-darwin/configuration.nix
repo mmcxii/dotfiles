@@ -20,6 +20,7 @@
       "keet"
       "proton-mail"
       "protonvpn"
+      "makemkv"
     ];
     masApps = {
       "Copilot" = 1447330651;

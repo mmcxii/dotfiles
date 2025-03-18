@@ -51,8 +51,8 @@
       "visual-studio-code"
       "font-meslo-lg-nerd-font"
       "ghostty"
-      "arc"
       "docker"
+      "zen-browser"
     ];
     onActivation = {
       cleanup = "zap";
@@ -91,22 +91,43 @@
     };
 
     defaults = {
+      controlcenter = {
+        BatteryShowPercentage = true;
+      };
+      menuExtraClock = {
+        ShowSeconds = true;
+        Show24Hour = true;
+      };
       dock = {
         autohide = true;
         persistent-apps = [
           "/Applications/Ghostty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "/Applications/Todoist.app"
-          "/Applications/Arc.app"
+          "/Applications/Zen.app"
         ];
       };
       finder = {
         FXPreferredViewStyle = "clmv";
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
       };
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;
         AppleInterfaceStyle = "Dark";
         KeyRepeat = 2;
+      };
+      trackpad = {
+        Clicking = true;
+      };
+    };
+  };
+  security = {
+    pam = {
+      services = {
+        sudo_local = {
+          touchIdAuth = true;
+        };
       };
     };
   };
